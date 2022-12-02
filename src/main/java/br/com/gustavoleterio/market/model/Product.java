@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +20,7 @@ public class Product {
 	private String description;
 	private BigDecimal price;
 	private LocalDate registerDate = LocalDate.now();
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Category category;
 
 	public Product() {
